@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Input Website: </title>
+</head>
+<body>
+    <h1>Enter your infomation down below</h1>
+    
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname"><br><br>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age"><br><br>
+    
+    <label for="occupation">Occupation:</label>
+    <input type="text" id="occupation"><br><br>
+    
+    <button onclick="displayUserInfo()">My Profile Info</button><br><br>
+    
+    <h2>user data: </h2>
+    <p id="userInfo"></p>
+    
+    <script>
+        class User {
+            constructor(fullname, age, occupation) {
+                this.fullname = fullname;
+                this.age = age;
+                this.occupation = occupation;
+            }
+            
+            getInfo() {
+                return "Full Name: " + this.fullname + "<br>" +
+                       "Age: " + this.age + "<br>" +
+                       "Occupation: " + this.occupation;
+            }
+        }
+        
+        function displayUserInfo() {
+            var fullname = document.getElementById("fullname").value;
+            var age = document.getElementById("age").value;
+            var occupation = document.getElementById("occupation").value;
+            
+            var user = new User(fullname, age, occupation);
+            
+            document.getElementById("userInfo").innerHTML = user.getInfo();
+        }
+    </script>
+</body>
+</html>
